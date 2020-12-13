@@ -1,12 +1,11 @@
 /** Express app for bookstore. */
 
-
 const express = require("express");
 const app = express();
 
-app.use(express.json());
+app.use(express.json());   // expect JSON in the request body
 
-const ExpressError = require("./expressError")
+const ExpressError = require("./expressError");
 const bookRoutes = require("./routes/books");
 
 app.use("/books", bookRoutes);
@@ -25,8 +24,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
 
   return res.json({
-    error: err,
-    message: err.message
+    message: err.message,
+    status: err.status
   });
 });
 
