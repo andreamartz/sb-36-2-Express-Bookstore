@@ -4,6 +4,8 @@ const db = require("../db");
 const Book = require("../models/book");
 const { DB_URI } = require("../config");
 
+process.env.NODE_ENV = "test"
+
 let b1, b2, bookIsbn;
 
 beforeEach(async function () {
